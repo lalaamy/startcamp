@@ -4,8 +4,8 @@ numbers = []
 for n in range(9) :
     num = int(input())
     numbers.append(num)
-    
-    M = max(numbers)
+
+M = max(numbers)
     
 print(M)
-print(numbers.index(M))
+print(numbers.index(M)+1)

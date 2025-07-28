@@ -1,7 +1,8 @@
 N, M = map(int, input().split())
-basket = [0] * N
+basket = [ i for i in range(1,N+1)]
 
-for m in range(M) : 
+for _ in range(M) : 
     i, j = map(int, input().split())
-    i, j = j, i
-print(*list(basket))
+    basket[i-1], basket[j-1] = basket[j-1], basket[i-1]
+
+print(*basket)

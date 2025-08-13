@@ -1,20 +1,28 @@
 N = int(input())
-light = list(map(int, input().split()))
+
+switch = [0] + list(map(int, input().split()))
 student = int(input())
 
-light_switch = []
-for s in range(student) :
-    m, num = map(int, input().split())
+for _ in range(student) :
+    gender, number = map(int, input().split())
 
-    if m == 1 :
-        for i in range(1, 9) :
-            if 1 <= num*i <= 8 :
-                light[num*i] = 1 - light[num*i]
-            
-            light_switch.append(light)
+    if gender == 1 : # 남자일 때
+        for i in range(number, N+1, number) :
+            switch[i] = 1 - switch[i]
+            # continue
 
-    elif m == 2 :
-        for i in range(1,5) :
-            if light[num - i] == light[num + i] :
-                light[num-i] = 1 - light[num-i]
-                light[num + i] = 1- 
+    if gender == 2 : # 여자일 때
+        i = 0
+        while 1 <= number -i <= N and 1 <= number +i <= N and switch[number-i] == switch[number+i] :
+            i += 1
+        i -= 1
+
+        for j in range (number-i, number+i+1) :
+            switch[j] = 1 - switch[j]
+            # switch[number-i] = 1 - switch[number-i]
+            # switch[number+i] = 1 - switch[number+i]
+
+for p in range(1, len(switch)) :
+    print(switch[p], end=' ')
+    if p % 20 == 0:
+        print() 

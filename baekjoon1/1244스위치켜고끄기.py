@@ -22,7 +22,12 @@ for _ in range(student) :
             # switch[number-i] = 1 - switch[number-i]
             # switch[number+i] = 1 - switch[number+i]
 
-for p in range(1, len(switch)) :
-    print(switch[p], end=' ')
-    if p % 20 == 0:
-        print() 
+# for p in range(len(switch)) :
+#     print(switch[p], end=' ')
+#     if p % 20 == 0:
+#         print() 
+
+idx = 1
+while idx < len(switch):
+    print (*switch[idx:idx+20])
+    idx += 20
